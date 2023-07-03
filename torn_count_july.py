@@ -9,8 +9,11 @@ def calculate_statistics(data):
     mean = np.mean(data)
     maximum = np.max(data)
     minimum = np.min(data)
+    # confidence_interval = np.percentile(data, [2.5, 97.5])
+    # use 70% confidece interval for long range forecast (~2 weeks)
+    confidence_interval = np.percentile(data, [15, 85])
 
-    return median, mean, maximum, minimum
+    return median, mean, maximum, minimum, confidence_interval
 
 def process_files(directory):
     count = {}
@@ -64,12 +67,13 @@ def process_files(directory):
 
     print("Proportion of zero tornado days (July) for all gathered years (scale is 0 to 1):")
     print(",".join(all_zero_days_ratio_str))
-    median, mean, maximum, minimum = calculate_statistics(months_zeros)
+    median, mean, maximum, minimum, confidence_interval = calculate_statistics(months_zeros)
     print("Statistics of number of zero days for July for all gathered years (normalized to 31 days):")
     print("Median:", round(median,3))
     print("Mean:", round(mean,3))
     print("Maximum:", round(maximum,3))
     print("Minimum:", round(minimum,3))
+    print("70% Confidence Interval:", confidence_interval)
 
     print("Total tornadoes for each Month:")
     print(f"months_sums = {months_sums}")
