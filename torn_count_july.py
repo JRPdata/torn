@@ -1,6 +1,7 @@
 # Tornado statistics for contintental U.S.=
 # data gathered with gettorndata.py
 
+
 import os
 import numpy as np
 def calculate_statistics(data):
@@ -63,12 +64,12 @@ def process_files(directory):
 
     print("Proportion of zero tornado days (July) for all gathered years (scale is 0 to 1):")
     print(",".join(all_zero_days_ratio_str))
-    median, mean, maximum, minimum = calculate_statistics(all_zero_days_ratio_float)
+    median, mean, maximum, minimum = calculate_statistics(months_zeros)
     print("Statistics of number of zero days for July for all gathered years (normalized to 31 days):")
-    print("Median:", round(median*31,3))
-    print("Mean:", round(mean*31,3))
-    print("Maximum:", round(maximum*31,3))
-    print("Minimum:", round(minimum*31,3))
+    print("Median:", round(median,3))
+    print("Mean:", round(mean,3))
+    print("Maximum:", round(maximum,3))
+    print("Minimum:", round(minimum,3))
 
     print("Total tornadoes for each Month:")
     print(f"months_sums = {months_sums}")
