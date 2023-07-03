@@ -7,6 +7,8 @@ maxyear = 22
 month = 7
 monthdays = 31
 
+# Reports found via https://www.spc.noaa.gov/products/archive/
+
 MM = f{"month:02d"}
 for year in range(minyear, maxyear+1):
     YY = f"{year:02d}"

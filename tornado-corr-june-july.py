@@ -2,11 +2,13 @@ import json
 import numpy as np
 # 249 tornados for june 2023, 4 days of no tornados (from csv gathered for last month)
 june_tornado_count = 249
-# data from torn_count_july.py
+# data calculated from results of torn_count_july.py
 months_sums = [138, 123, 68, 50, 120, 134, 173, 100, 30, 63, 99, 133, 111, 93, 111, 114, 129, 178, 89]
 months_zeros = [9, 6, 9, 9, 8, 5, 4, 9, 16, 10, 14, 6, 7, 8, 8, 8, 10, 9, 13]
 
+# Data gathered from https://www.ncei.noaa.gov/access/monitoring/tornadoes/1/6?fatalities=false
 firstmonth = 'torn-june.json'
+# Data gathered from https://www.ncei.noaa.gov/access/monitoring/tornadoes/1/7?fatalities=false
 secondmonth = 'torn-july.json'
 
 def predict_linear(predict, x, y):
